@@ -1,0 +1,65 @@
+import java.util.Scanner;
+public class PerfectAndDeficient
+{
+    public static void main(String[] args)
+    {
+        int perfectFound = 0;
+        int perfdefFound = 0;
+       
+        Scanner sc = new Scanner (System.in);
+        System.out.print("Enter upper bound: ");
+        int upperBound = sc.nextInt();
+        
+        System.out.print("\nThese numbers are perfect: ");
+        for(int j=1;j<=upperBound;j++)
+        {
+            if(isPerfect(j)==true)
+            {
+                System.out.print(j+" ");
+                perfectFound++; // add one to total perfect numbers found each time  
+            } 
+        }
+        double perfectPercent = (perfectFound*1.0/upperBound)*100;
+        
+        System.out.print("[ "+ perfectFound +" perfect numbers found ("+perfectPercent+"%)]"); 
+        
+        System.out.print("\nThese numbers are not perfect nor deficient:");
+        for(int j=1;j<=upperBound;j++)
+        {
+            if((isPerfect(j)==false)&&(isDeficient(j)==false))
+            {
+                System.out.print(j+" ");
+                perfdefFound++;
+            }  
+        }
+        System.out.print("[ "+ perfdefFound +" not perfect, nor deficient numbers found ("+((perfdefFound*1.0/upperBound)*100)+"%)]"); 
+    }      
+            
+    public static boolean isPerfect(int j)
+    {
+        int sum = 0;
+        for(int i = 1; i<j; i++)
+        {
+            if (j%i == 0) // find proper divisors
+            {
+                sum+=i; //find sum of perfect numbers
+            }
+        }
+        if(sum==j){return true;} //see if sum matches upper bound
+        else {return false;}
+    }
+
+    public static boolean isDeficient(int j)
+    {
+        int sum = 0;
+        for(int i = 1; i<j; i++)
+        {
+            if (j%i == 0) // find proper divisors
+            {
+                sum+=i;
+            }
+        }
+        if(sum<j){return true;}
+        else {return false;}
+    }
+}
