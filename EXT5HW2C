@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Prime
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter the upper bound: ");
+        long upperBound = sc.nextInt();
+        int primeAmount = 0;
+        System.out.print("These numbers are prime: ");
+        for(int i=2; i<=upperBound; i++)
+        {
+            if(isPrime(i)==true)
+            {
+                System.out.print(i+"\n ");
+                primeAmount++;
+            }
+        }
+        double primePercent = (primeAmount*1.0/upperBound)*100;
+        System.out.print( primeAmount + " prime numbers found. [" +primePercent+ "%] ");
+    }
+
+    public static boolean isPrime(int j)
+    {
+        for (int i =2; i <= j/2;i++){
+            if(j % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
