@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Scramble
+{
+    public static void main(String[] args)
+    {      
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter message: ");
+        String sentence = sc.nextLine();
+        
+        System.out.print(cypher(sentence));
+
+    }
+
+    public static String cypher (String sentence)
+    {
+        if ( sentence == null ) {return null;}
+        
+        int len = sentence.length();
+        Character[] array = new Character[len];
+        for (int i = 0; i < len-1 ; i++){array[i] = new Character(sentence.charAt(i));}
+        
+        for (int i = 0 ; i < array.length ; i++){array[i] = array[i+1]; array[i+1] = array[i];}
+        
+        String cypher = String.valueOf(array);
+
+        return cypher;
+        
+    }
+}
