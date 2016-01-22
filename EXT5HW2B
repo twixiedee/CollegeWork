@@ -1,0 +1,38 @@
+public class FizzBuzz
+{
+    public static void main(String[] args)
+    {
+        for(int i = 1; i<=100; i++)
+        {
+            if((checkFive(i)==true))
+            {
+                if((checkThree(i)==true)){System.out.print("FizzBuzz! ");}
+                else {System.out.print("Fizz! ");}
+            }
+            else if((checkThree(i)==true))
+            {
+                if((checkFive(i)==true)){System.out.print("FizzBuzz! ");}
+                else {System.out.print("Buzz! ");}
+            }
+            
+            else{System.out.print(i+" ");}
+            
+            
+            
+            if(i%10==0){System.out.print("\n");}
+           
+        }
+    }
+
+    public static boolean checkFive(int i)
+    {
+        if(i%5==0){return true;}
+        else{return false;}
+    }
+
+    public static boolean checkThree(int i)
+    {
+        if(i%3==0){return true;}
+        else{return false;}
+    }
+}
